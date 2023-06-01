@@ -1,9 +1,14 @@
 package org.global.ecp.hackathon.app.basket;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 import lombok.extern.slf4j.Slf4j;
 import org.global.ecp.hackathon.app.basket.model.Basket;
 import org.global.ecp.hackathon.app.basket.model.BasketProduct;
 import org.global.ecp.hackathon.app.basket.services.BasketProductService;
+import org.global.ecp.hackathon.app.product.ProductRepository;
+import org.global.ecp.hackathon.app.product.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +32,9 @@ public class BasketService {
     public Basket addToBasket(final Long productId) {
 
         BasketProduct basketProduct = basketProductService.createBasketProduct(getBasket(), productId);
+        basketRepository.add(basketProduct);
         basketProduct.increaseQuantity();
-        return null;
+        return getBasket();
     }
 
     // TODO - Task 5: remove basketProduct from the basket using the basketRepository
