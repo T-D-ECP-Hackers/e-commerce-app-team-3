@@ -10,11 +10,11 @@
   grid-template-columns: 100%;
 }
 
-.app-body {
-  display: grid;
-  justify-items: center;
-  padding-top: 4%;
-}
+// .app-body {
+//   display: grid;
+//   justify-items: center;
+//   padding-top: 4%;
+// }
 
 .products-block {
   width: 80%;
@@ -24,4 +24,18 @@
   text-align: center;
   display: grid;
   align-items: center;
+}
+
+.product-manage-form form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1.5rem;
+  width: max-content;
+}
+
+.product-manage-form form > label{
+  display: flex;
+  justify-content: space-between;
+  margin: .5rem 0;
 }

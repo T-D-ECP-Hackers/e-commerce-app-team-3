@@ -24,3 +24,15 @@ export function createProduct(productString: any, navigate: NavigateFunction) {
     })
     goToProductsPage(navigate)
 }
+
+export function removeProduct(productId: number) {
+    axios.delete(productsUrl, {
+        params: {
+            id: productId
+        }
+    }).then(response => {
+        // fetchBasket(setCurrentBasket);
+    }).catch(error => {
+        console.log("Error fetching data: " + error)
+    })
+}

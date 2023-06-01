@@ -1,6 +1,11 @@
-import { useState } from "react";
+import React, {useContext, useEffect, useState} from 'react';
 import { useNavigate } from "react-router-dom";
-import {createProduct} from "../../api/fetchProducts";
+import {createProduct, fetchProducts} from "../../api/fetchProducts";
+import {fetchBasket} from "../../api/fetchBasket";
+import {product} from "../../model/productType";
+import Products from "../productManage/Products";
+import BasketContext from "../../context/BasketContext";
+
 
 
 function ProductManagePage(props: {}) {
@@ -11,8 +16,26 @@ function ProductManagePage(props: {}) {
 
     const navigate = useNavigate();
 
+    const [products, setProducts] = useState<product[]>([]);
+    const basket = useContext(BasketContext);
+
+    useEffect(() => {
+        fetchBasket(basket.setCurrentBasket);
+        fetchProducts(setProducts);
+    }, [basket.setCurrentBasket]);
+
     return (
-        <div className="product-manage-form">
+        <div className="products-body">
+            <div className="products">
+                <div className="products-title">
+                    <div>ID</div>
+                    <div>Name</div>
+                    <div>Description</div>
+                    <div>Price</div>
+                </div>
+                <Products products={products}/>
+            </div>
+            <div className="product-manage-form">
             <form onSubmit={e => createProduct({name: productName, description: description, price: price}, navigate) }>
                 <label>Product Name
                     <input name="product-name" type="text" value={productName}
@@ -29,6 +52,8 @@ function ProductManagePage(props: {}) {
                 <input type="submit" value="Add Product"/>
             </form>
         </div>
+        </div>
+        
     )
 
 }
