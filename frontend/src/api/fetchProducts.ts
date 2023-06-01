@@ -13,7 +13,7 @@ export function fetchProducts(setProducts: (value: (((prevState: product[]) => p
     })
 }
 
-export function createProduct(productString: string, navigate: NavigateFunction) {
+export function createProduct(productString: any, navigate: NavigateFunction) {
     console.log('sending post request: ', productString);
     axios.post(productsUrl, productString, {}).then(response => {
         console.log("Success creating product: " + response)

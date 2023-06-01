@@ -7,21 +7,13 @@ function ProductManagePage(props: {}) {
 
     const [productName, setProductName] = useState<string>();
     const [description, setDescription] = useState<string>();
+    const [price, setPrice] = useState<string>();
 
     const navigate = useNavigate();
 
-    const [price, setPrice] = useState<string>();
-
-    const handleSubmit = (e: any) => {
-        let exampleObject = {name: 'name', description: 'description', price: 1}
-        let objectString = JSON.stringify(exampleObject);
-        createProduct(objectString, navigate);
-        // e.preventDefaut()
-    }
-
     return (
         <div className="product-manage-form">
-            <form onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={e => createProduct({name: productName, description: description, price: price}, navigate) }>
                 <label>Product Name
                     <input name="product-name" type="text" value={productName}
                     onChange={e => setProductName(e.target.value)}/>
@@ -31,7 +23,7 @@ function ProductManagePage(props: {}) {
                     onChange={e => setDescription(e.target.value)}/>
                 </label>
                 <label>Product Price
-                    <input name="product-price" type="text" value={price}
+                    <input name="product-price" type="number" value={price}
                     onChange={e => setPrice(e.target.value)}/>
                 </label>
                 <input type="submit" value="Add Product"/>
