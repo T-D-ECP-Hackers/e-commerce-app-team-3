@@ -1,5 +1,9 @@
 package org.global.ecp.hackathon.app.order;
 
+import static java.util.Objects.isNull;
+import static org.springframework.util.CollectionUtils.isEmpty;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,8 +26,21 @@ public class OrderService {
 
     // TODO - Task 9: implement this method
     public UUID createOrder(final OrderRequest orderRequest) {
-
-        return null;
+        if (isEmpty((orderRequest.getBasket().getBasketProducts()))) {
+            return null;
+        }
+        final UUID orderId = UUID.randomUUID();
+        final LocalDateTime dateTime = LocalDateTime.now();
+        final Order order = Order.builder()
+            .id(orderId)
+            .dateTimeOfOrder(dateTime)
+            .orderedProducts(orderRequest.getBasket().getBasketProducts())
+            .totalCost(orderRequest.getTotalCost())
+            .completed(true)
+            .build();
+        orderRepository.add(order);
+        log.info("Order added - {}", order);
+        return orderId;
     }
 
     public List<Order> getAllOrders() {

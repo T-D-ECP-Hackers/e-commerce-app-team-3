@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.UUID;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 import org.global.ecp.hackathon.app.basket.model.BasketProduct;
 
 @Data
+@SuperBuilder
 public class Order {
 
     private UUID id;
