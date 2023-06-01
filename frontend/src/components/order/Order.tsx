@@ -1,8 +1,8 @@
-import React from 'react';
 import {basketProduct} from "../../model/basketProductType";
 import OrderProducts from "./OrderProducts";
 import {order} from "../../model/orderType";
 import {formatAsGBP} from "../../functions/numberFormatter";
+import { completeOrder } from '../../api/fetchOrders';
 
 function Order(props: { id: string; dateTimeOfOrder: string; orderedProducts: basketProduct[]; totalCost: number, completed: boolean; setOrders: (value: (((prevState: order[]) => order[]) | order[])) => void }) {
 
@@ -15,7 +15,11 @@ function Order(props: { id: string; dateTimeOfOrder: string; orderedProducts: ba
             <div className="order-products">
                 <OrderProducts orderProducts={props.orderedProducts}/>
             </div>
-            {/*TODO - Task 13: add a complete order button here*/}
+            <button className="complete-order"
+                    onClick={() => completeOrder(
+                        props.id,
+                        props.setOrders)}>Complete Order
+            </button>
         </div>
     );
 }
