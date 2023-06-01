@@ -38,7 +38,7 @@ public class EmailService {
             Time of order: %s
             Ordered products: 
             %s
-            Total cost of order: %s
+            Total cost of order: £%s
             """, order.getDateTimeOfOrder().toLocalDate(),
                              order.getDateTimeOfOrder().toLocalTime(),
                              getFormattedProducts(order.getOrderedProducts()),
