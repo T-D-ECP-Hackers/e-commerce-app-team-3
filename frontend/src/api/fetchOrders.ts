@@ -19,6 +19,12 @@ export function generateNewOrder(currentBasket: basket | null, totalCost: number
 
 // TODO - Task 10: implement fetch orders
 export function fetchOrders(setOrders: (value: (((prevState: order[]) => order[]) | order[])) => void) {
+    axios(ordersURL).then(response => {
+        setOrders(response.data)
+    }).catch(error => {
+        console.error(error.response.data.message)
+
+    })
 }
 
 // TODO - Task 13: Implement a complete order axios fetch method to call the backend api

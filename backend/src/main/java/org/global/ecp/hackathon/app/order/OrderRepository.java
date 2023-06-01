@@ -31,8 +31,8 @@ public class OrderRepository {
     //  this will be needed for Task 10
     public List<Order> getAll() {
 
-        return null;
-        //return orders.values().stream().toList();
+        // return null;
+        return orders.values().stream().toList();
     }
 
     // TODO - Task 12: implement the getById method here
