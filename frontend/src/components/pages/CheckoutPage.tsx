@@ -32,11 +32,14 @@ function CheckoutPage() {
                         
                     </div>
                     <CheckoutBody basket={getBasket(basket.currentBasket)}/>
+                    <div className="checkout-button-flex">
+                    <h1>Total Cost of Products - {formatAsGBP(getTotalCostOfProducts(basket.currentBasket))}</h1>
                     <div className="checkout-button" onClick={() => setShowCheckoutSummary(true)}>
-                            <h1>Total Cost of Products - {formatAsGBP(getTotalCostOfProducts(basket.currentBasket))}</h1>
                             <h1>Checkout
                                 - {basket.currentBasket == null ? 0 : basket.currentBasket.totalProducts} Products</h1>
                         </div>
+                    </div>
+                    
                 </>
             }
         </div>

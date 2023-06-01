@@ -19,7 +19,7 @@
 .products-block {
   width: 80%;
   height: 33vh;
-  background-color: lightgrey;
+  background-color: #49bc8a;
   border-radius: 0.5em;
   text-align: center;
   display: grid;
@@ -38,6 +38,14 @@
 
 
 }
+
+button {
+  background-color: #49bc8a;
+  border-radius: 0.5em;
+  color: white;
+  outline-width: 0;
+}
+
 
 
 .product-manage-form form > label{

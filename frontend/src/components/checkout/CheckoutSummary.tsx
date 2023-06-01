@@ -40,12 +40,17 @@ function CheckoutSummary({setShowCheckoutSummary}: { setShowCheckoutSummary: Rea
     return (
         <div className="checkout-summary-container">
             <div className="checkout-summary">
+                <p>Dear valued customer,
+
+Thank you from the bottom of our hearts for choosing to shop at our store. We are truly grateful for your trust and support. Your decision to purchase from us is a testament to the hard work and dedication we put into providing exceptional products and service.
+We look forward to serving you again and exceeding your expectations in the future.</p>
+                <p>SPRAY N SLAY ALL DAY!</p>
                 <label>Subtotal - {formatAsGBP(totalCostOfItems)}</label>
                 <label>Shipping cost - {formatAsGBP(shippingCost)}</label>
                 <label>Total cost - {formatAsGBP(getTotalCost(totalCostOfItems, shippingCost))}</label>
                 <div className="checkout-summary-buttons">
-                    <div className="checkout-summary-button" onClick={() => setShowCheckoutSummary(false)}>Go Back</div>
-                    <div className="checkout-summary-button" onClick={() => checkoutBasket()}>Complete Checkout</div>
+                    <button className="checkout-summary-button" onClick={() => setShowCheckoutSummary(false)}>Go Back</button>
+                    <button className="checkout-summary-button" onClick={() => checkoutBasket()}>Complete Checkout</button>
                 </div>
 
             </div>

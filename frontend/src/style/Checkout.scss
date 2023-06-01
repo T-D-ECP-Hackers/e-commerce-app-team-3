@@ -12,9 +12,17 @@
   cursor: pointer;
   padding: 0 1.5rem;
   border-radius: 0.5em;
-  width: 80%;
+  width: 30%;
+  margin-left: 2rem;
   column-gap: 10%;
   justify-content: center;
+}
+
+.checkout-button-flex {
+  display: flex;
+  margin: 3rem;
+  width: 80%;
+  margin-bottom: 10rem;
 }
 
 .basket {
@@ -25,12 +33,12 @@
 }
 
 .checkout {
-  height: 80%;
+  height: max-content;
   margin: 0 4% 0 4%;
 }
 
 .checkout-container {
-  height: 80%;
+  height: min-content;
   overflow-y: auto;
   overflow-x: hidden;
   overscroll-behavior: contain;
@@ -48,8 +56,9 @@
 .checkout-product {
   display: grid;
   grid-template-rows: 100%;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-columns: 10% 20% 20% 10% 10% 10% 10%;
   margin: 2%;
+  gap: 1rem;
 }
 
 .checkout-page-summary {
@@ -66,7 +75,8 @@
 .checkout-summary {
   width: 80%;
   height: 50vh;
-  background-color: lightgrey;
+  background-color: #49bc8a;
+  color: white;
   border-radius: 0.5em;
   display: grid;
   align-items: center;
