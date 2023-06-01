@@ -9,12 +9,14 @@ import org.global.ecp.hackathon.app.order.OrderService;
 import org.global.ecp.hackathon.app.order.model.Order;
 import org.global.ecp.hackathon.app.order.model.OrderRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Tag(name = "Order Endpoint", description = "Create product orders and list all orders that were made.")
@@ -45,4 +47,10 @@ public class OrderController {
     }
 
     // TODO - Task 12: implement complete order method
+
+    @PostMapping("/complete")
+    public ResponseEntity completeOrder(@RequestParam final UUID orderId) {
+        orderService.completeOrder(orderId);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
 }

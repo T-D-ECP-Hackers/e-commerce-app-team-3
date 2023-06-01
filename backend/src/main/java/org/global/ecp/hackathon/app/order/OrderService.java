@@ -5,6 +5,7 @@ import static org.springframework.util.CollectionUtils.isEmpty;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import lombok.extern.slf4j.Slf4j;
@@ -49,4 +50,13 @@ public class OrderService {
     }
 
     // TODO - Task 12: create a complete order method here
+    public void completeOrder(final UUID id) {
+        final Optional<Order> order = orderRepository.getById(id);
+        if (order.isPresent()) {
+            order.get().setCompleted(true);
+        } else {
+            log.info("Order was not found with ID - {}", id);
+        }
+    }
+
 }

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.global.ecp.hackathon.app.order.model.Order;
@@ -36,4 +37,7 @@ public class OrderRepository {
     }
 
     // TODO - Task 12: implement the getById method here
+    public Optional<Order> getById(final UUID id) {
+        return Optional.ofNullable(orders.get(id));
+    }
 }

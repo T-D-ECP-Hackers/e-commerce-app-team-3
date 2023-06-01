@@ -20,7 +20,6 @@ public class Order {
     private double totalCost;
     private List<BasketProduct> orderedProducts;
 
-    @Setter(AccessLevel.NONE)
     private boolean completed = false;
 
     public Order() {}
