@@ -13,11 +13,11 @@ function ProductManagePage(props: {}) {
     const [productName, setProductName] = useState<string>();
     const [description, setDescription] = useState<string>();
     const [price, setPrice] = useState<string>();
+    const [products, setProducts] = useState<product[]>([]);
+    const basket = useContext(BasketContext);
 
     const navigate = useNavigate();
 
-    const [products, setProducts] = useState<product[]>([]);
-    const basket = useContext(BasketContext);
 
     useEffect(() => {
         fetchBasket(basket.setCurrentBasket);
@@ -36,7 +36,7 @@ function ProductManagePage(props: {}) {
                 <Products products={products}/>
             </div>
             <div className="product-manage-form">
-            <form onSubmit={e => createProduct({name: productName, description: description, price: price}, navigate) }>
+            <form onSubmit={e => createProduct({name: productName, description: description, price: price}, navigate, setProducts) }>
                 <label>Product Name
                     <input name="product-name" type="text" value={productName}
                     onChange={e => setProductName(e.target.value)}/>

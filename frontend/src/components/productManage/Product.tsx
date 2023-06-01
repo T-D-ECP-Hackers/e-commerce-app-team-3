@@ -1,11 +1,14 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import BasketContext from "../../context/BasketContext";
 import {addProductToBasket, removeProductFromBasket} from "../../api/fetchBasket";
 import { removeProduct } from '../../api/fetchProducts';
+import { useNavigate } from 'react-router-dom';
+import { product } from '../../model/productType';
 
 function Product(props: { id: number; name: string; description: string; price: number; }) {
 
-    const basket = useContext(BasketContext);
+    const navigate = useNavigate();
+    const [products, setProducts] = useState<product[]>([]);
 
     const {id, name, description, price} = props
     return (
@@ -15,7 +18,7 @@ function Product(props: { id: number; name: string; description: string; price: 
             <div className="product-description">{description}</div>
             <div className="product-price">£{price}</div>
             <button className="remove-product"
-                    onClick={() => removeProduct(id)}>Remove Product
+                    onClick={() => removeProduct(id, navigate, setProducts)}>Remove Product
             </button>
         </div>
     );

@@ -17,6 +17,17 @@ function ProductBody() {
 
     return (
         <div className="products-body">
+                <div className="website-description">
+                    <h2>
+                        Welcome to Spray n Slay - Your Ultimate Destination for Hair (Human Only)!
+                    </h2>
+                    <p>
+                        At Spray n Slay, we believe that healthy and beautiful hair is the ultimate accessory that can transform your entire look. We are thrilled to present a one-stop shopping experience for all your hair care needs, where you can explore an extensive range of premium quality products designed to make your hair shine, radiate, and slay!
+                    </p>
+                    <p>
+                        See our extensive list of products below...
+                    </p>
+                </div>
             <div className="products">
                 <div className="products-title">
                     <div>ID</div>

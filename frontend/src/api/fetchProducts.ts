@@ -1,7 +1,7 @@
 import {product} from "../model/productType";
 import axios from "axios";
 import {productsUrl} from "./apiConstants";
-import { goToProductsPage } from "../functions/navigation";
+import { goToProductManagementPage, goToProductsPage } from "../functions/navigation";
 import { NavigateFunction } from "react-router-dom";
 
 export function fetchProducts(setProducts: (value: (((prevState: product[]) => product[]) | product[])) => void) {
@@ -13,25 +13,22 @@ export function fetchProducts(setProducts: (value: (((prevState: product[]) => p
     })
 }
 
-export function createProduct(productString: any, navigate: NavigateFunction) {
+export function createProduct(productString: any, navigate: NavigateFunction, setProducts: (value: (((prevState: product[]) => product[]) | product[])) => void) {
     console.log('sending post request: ', productString);
     axios.post(productsUrl, productString, {}).then(response => {
         console.log("Success creating product: " + response)
-
+        window.location.reload();
     }).catch(error => {
         console.log("Error fetching data: " + error)
 
     })
-    goToProductsPage(navigate)
 }
 
-export function removeProduct(productId: number) {
-    axios.delete(productsUrl, {
-        params: {
-            id: productId
-        }
+export function removeProduct(id: number, navigate: NavigateFunction, setProducts: (value: (((prevState: product[]) => product[]) | product[])) => void) {
+    axios.delete(`${productsUrl}/${id}`, {
     }).then(response => {
-        // fetchBasket(setCurrentBasket);
+        console.log("Success removing product: " + JSON.stringify(response));
+        window.location.reload();
     }).catch(error => {
         console.log("Error fetching data: " + error)
     })

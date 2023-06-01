@@ -10,8 +10,9 @@ function CheckoutOption() {
     const navigate = useNavigate();
 
     return (
-        <div className="basket">
-            <FiShoppingCart onClick={() => goToCheckout(navigate)}/>
+        <div className="basket" onClick={() => goToCheckout(navigate)}>
+            My Basket
+            <FiShoppingCart/>
             <label
                 className={"number-of-checkout-items"}>{basket.currentBasket === null ? 0 : basket.currentBasket.totalProducts}</label>
         </div>

@@ -28,14 +28,19 @@
 
 .product-manage-form form {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
+  justify-content: space-around;
   margin: auto;
   padding: 1.5rem;
-  width: max-content;
+  // width: 80%;
 }
 
 .product-manage-form form > label{
   display: flex;
   justify-content: space-between;
   margin: .5rem 0;
+}
+
+.website-description {
+  margin: 2rem;
 }
