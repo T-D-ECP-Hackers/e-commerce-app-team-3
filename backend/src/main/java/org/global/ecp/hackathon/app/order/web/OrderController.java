@@ -51,6 +51,6 @@ public class OrderController {
     @PostMapping("/complete")
     public ResponseEntity completeOrder(@RequestParam final UUID orderId) {
         orderService.completeOrder(orderId);
-        return new ResponseEntity(HttpStatus.OK);
+        return ResponseEntity.ok(orderService.getAllOrders());
     }
 }
