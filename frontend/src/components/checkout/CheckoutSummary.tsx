@@ -3,7 +3,9 @@ import {checkout} from "../../api/fetchBasket";
 import {useNavigate} from "react-router-dom";
 import BasketContext from "../../context/BasketContext";
 import {getTotalCostOfProducts} from "../../functions/getTotalCostOfProducts";
+import {formatAsGBP} from "../../functions/numberFormatter";
 import {generateNewOrder} from "../../api/fetchOrders";
+import { format } from "path";
 
 function CheckoutSummary({setShowCheckoutSummary}: { setShowCheckoutSummary: React.Dispatch<React.SetStateAction<boolean>> }) {
 
@@ -28,13 +30,6 @@ function CheckoutSummary({setShowCheckoutSummary}: { setShowCheckoutSummary: Rea
     // TODO - Task 7: calculate the total cost of items and shipping
     function getTotalCost(totalCostOfItems: number, shippingCost: number) {
         return totalCostOfItems + shippingCost;
-    }
-
-    // This function will round any number to two digits
-    // If you have the number "0.01234" you will get "0.01"
-    function formatAsGBP(num: number) {
-        const formatter = new Intl.NumberFormat('en-UK', {style: 'currency', currency: 'GBP'})
-        return formatter.format(num);
     }
 
     function checkoutBasket() {
