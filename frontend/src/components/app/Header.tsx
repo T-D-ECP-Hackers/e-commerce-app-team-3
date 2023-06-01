@@ -3,8 +3,6 @@ import NavigationBar from "./NavigationBar";
 import {goToHomePage} from "../../functions/navigation";
 import {useNavigate} from "react-router-dom";
 
-// TODO - Task 1: Please name me
-
 function Header() {
     const navigate = useNavigate();
     return (

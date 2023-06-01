@@ -7,6 +7,8 @@ import ErrorPage from "./components/pages/ErrorPage";
 import ProductsPage from "./components/pages/ProductsPage";
 import CheckoutPage from "./components/pages/CheckoutPage";
 import OrdersPage from "./components/pages/OrdersPage";
+import ProductManagePage from "./components/pages/ProductManagePage";
+
 
 const router = createBrowserRouter([
     {
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: "orders",
                 element: <OrdersPage />,
+            },
+            {
+                path: "productManagement",
+                element: <ProductManagePage />,
             },
         ],
     },

@@ -15,3 +15,7 @@ export function goToCheckout(navigate: NavigateFunction) {
 export function goToOrdersPage(navigate: NavigateFunction) {
     navigate("/orders");
 }
+
+export function goToProductManagementPage(navigate: NavigateFunction) {
+    navigate("/productManagement");
+}
