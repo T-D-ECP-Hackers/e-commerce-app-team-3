@@ -28,17 +28,26 @@
 
 .product-manage-form form {
   display: flex;
-  // flex-direction: column;
+  color: white;
   justify-content: space-around;
   margin: auto;
   padding: 1.5rem;
-  // width: 80%;
+  width: 80%;
+  background-color: #49bc8a;
+  border-radius: 0.5em;
+
+
 }
+
 
 .product-manage-form form > label{
   display: flex;
   justify-content: space-between;
   margin: .5rem 0;
+}
+
+.product-manage-form form > label > input {
+  margin-left: 1rem;
 }
 
 .website-description {

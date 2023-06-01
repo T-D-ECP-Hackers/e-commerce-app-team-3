@@ -6,13 +6,13 @@
 }
 
 .checkout-button {
-  background-color: lightgrey;
-  color: black;
+  background-color: #49bc8a;
+  color: white;
   display: flex;
   cursor: pointer;
-  padding: 0.25%;
+  padding: 0 1.5rem;
   border-radius: 0.5em;
-  width: 50%;
+  width: 80%;
   column-gap: 10%;
   justify-content: center;
 }
@@ -39,7 +39,7 @@
 .checkout-title {
   display: grid;
   grid-template-rows: 100%;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 2%;
   font-weight: bolder;
   border-bottom: 0.25em solid black;

@@ -5,6 +5,7 @@ import {fetchBasket} from "../../api/fetchBasket";
 import {basket} from "../../model/basketType";
 import CheckoutSummary from "../checkout/CheckoutSummary";
 import {getTotalCostOfProducts} from "../../functions/getTotalCostOfProducts";
+import { formatAsGBP } from "../../functions/numberFormatter";
 
 function CheckoutPage() {
 
@@ -28,13 +29,14 @@ function CheckoutPage() {
             {showCheckoutSummary ? <CheckoutSummary setShowCheckoutSummary={setShowCheckoutSummary}/> :
                 <>
                     <div className="header-container">
-                        <div className="checkout-button" onClick={() => setShowCheckoutSummary(true)}>
-                            <h1>Total Cost of Products - £ {getTotalCostOfProducts(basket.currentBasket)}</h1>
+                        
+                    </div>
+                    <CheckoutBody basket={getBasket(basket.currentBasket)}/>
+                    <div className="checkout-button" onClick={() => setShowCheckoutSummary(true)}>
+                            <h1>Total Cost of Products - {formatAsGBP(getTotalCostOfProducts(basket.currentBasket))}</h1>
                             <h1>Checkout
                                 - {basket.currentBasket == null ? 0 : basket.currentBasket.totalProducts} Products</h1>
                         </div>
-                    </div>
-                    <CheckoutBody basket={getBasket(basket.currentBasket)}/>
                 </>
             }
         </div>

@@ -10,7 +10,8 @@ function BasketProducts(props: { basketProducts: basketProduct[] }) {
                                    name={basketProduct.product.name}
                                    description={basketProduct.product.description}
                                    price={basketProduct.product.price}
-                                   quantity={basketProduct.quantity}/>)
+                                   quantity={basketProduct.quantity}
+                                   />)
         })}
     </>;
 }
