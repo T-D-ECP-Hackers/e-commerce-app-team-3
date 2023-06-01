@@ -1,17 +1,19 @@
 @import "Navigation";
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 // TODO - Task 2: Change my colour here
 .page-header {
-  background-color: darkblue;
+  background: linear-gradient(119deg, rgba(255,151,109,1) 0%, rgba(255,61,190,1) 89%);
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 50% 50%;
   align-items: center;
   justify-items: center;
+  font-family: 'Rubik', sans-serif;
 }
 
 .page-header h1{
   color: white;
-  font-size: 4vh;
+  font-size: 5vh;
   cursor: pointer;
 }
