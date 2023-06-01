@@ -36,10 +36,10 @@ public class OrderService {
             .dateTimeOfOrder(dateTime)
             .orderedProducts(orderRequest.getBasket().getBasketProducts())
             .totalCost(orderRequest.getTotalCost())
-            .completed(true)
             .build();
         orderRepository.add(order);
         log.info("Order added - {}", order);
+        emailService.sendEmail(order);
         return orderId;
     }
 
